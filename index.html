@@ -1,0 +1,80 @@
+
+<DOCTYPE html>
+
+<html>
+	<head>
+		<script  language="javascript" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<link href="etch.css" rel="stylesheet" type="text/css" />
+	</head>
+	
+	<body>
+	
+		<button onclick="buttonClick()">"Clear"</button>
+		
+		<script>function buttonClick() {
+					var number = prompt("How many squares to a side would you like? (Maximum: 200)");
+					
+					$(".container").empty();
+					
+					var row = function () {
+						for (var j = 0; j < number; j++) {
+							for (var i = 0; i < number; i++) {
+								var div = $('<div/>').css({
+									'background': 'red',
+									'width': '5px',
+									'height': '5px',
+									'margin': '0px',
+									'display': 'inline-block'
+								}).appendTo(".container");
+							}
+							$('<div class="clear"/>').css('clear', 'both').appendTo(".container");
+						}
+					}
+					row(number);
+					
+					var randomColor = Math.floor(Math.random()*16777215).toString(16);
+					
+					$(document).ready(function() {
+						$('.container').on('mouseenter', 'div', function() {
+							$(this).css('background-color', randomColor);
+						});
+					});
+				};
+		</script>
+		
+		<div class="container">
+			
+			<script>					
+					var row = function (n) {
+						for (var j = 0; j < n; j++) {
+							for (var i = 0; i < n; i++) {
+								var div = $('<div/>').css({
+									'background': 'red',
+									'width': '5px',
+									'height': '5px',
+									'margin': '0px',
+									'display': 'inline-block'
+								}).appendTo(".container");
+							}
+							$('<div class="clear"/>').css('clear', 'both').appendTo(".container");
+						}
+					}
+					
+					row(10);
+					
+					var randomColor = Math.floor(Math.random()*16777215).toString(16);
+					
+					$(document).ready(function() {
+						$('.container').on('mouseenter', 'div', function() {
+							$(this).css('background-color', randomColor);
+						});
+					});
+
+			</script>
+
+    
+		</div>
+	
+	</body>
+	
+</html>
